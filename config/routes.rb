@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root to: "welcome#index"
+  root to: "transactions#new"
+
+  resource :transactions, only: %i[new create]
 end

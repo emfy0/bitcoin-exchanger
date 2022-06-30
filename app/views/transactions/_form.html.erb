@@ -1,0 +1,27 @@
+<div class="col col-lg-6 mt-1">
+  <% transaction.errors.any? %>
+    <% transaction.errors.full_messages.each do |message| %>
+      <p class="mb-sm text-red"><%= message %></p>
+    <% end %>
+
+  <%= form_with model: transaction, data: { turbolinks: false } do |form| %>
+    <b><%= form.label :you_send, t("transaction_form.send") %></b>
+    <%= form.text_field :you_send, class: "form-control", required: true %>
+
+    <b><%= form.label :get, t("transaction_form.get") %></b>
+    <%= form.text_field :get, class: "form-control", required: true %>
+
+    <b><%= form.label :recipient_address, t("transaction_form.recipient_address") %></b>
+    <%= form.text_field :recipient_address, class: "form-control", required: true %>
+
+    <b><%= form.label :email_address, t("transaction_form.email") %></b>
+    <%= form.text_field :email_address, class: "form-control", required: true %>
+
+    <div class="form-check mt-1">
+      <%= form.check_box :terms, required: true, class: "form-check-input" %>
+      <%= form.label :terms, t("transaction_form.terms"), class: "form-check-label" %>
+    </div>
+
+    <%= form.submit "Send", class: "btn btn-primary mt-2" %>
+  <% end %>
+</div>
