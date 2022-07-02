@@ -7,9 +7,15 @@ class UpdateRatesJob < ApplicationJob
     all_currecies.each do |cur|
       unless cur.rate_to_btc == cur.to_BTC_by_API
         cur.update_rate!
-        cur.save
-        ActionCable.server.broadcast 'exchange_rate', cur.name => cur.rate_to_btc
+
+        ActionCable.server.broadcast 'exchange_rate', cur.name => float_to_str(cur.rate_to_btc)
       end
     end
+  end
+
+  private
+
+  def float_to_str(str)
+    sprintf("%.8f", str)
   end
 end

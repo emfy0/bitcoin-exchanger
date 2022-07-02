@@ -34,6 +34,6 @@ class Currency < ApplicationRecord
   end
 
   def update_rate!
-    rate_to_btc = BitfinexApi.exchange_rate(name, 'BTC')
+    update(rate_to_btc: to_BTC_by_API)
   end
 end
