@@ -1,3 +1,5 @@
+import consumer from "../channels/consumer"
+
 function strIsFloat(str) {
   return str.match(/^-?\d*(\.\d+)?$/);
 }
@@ -8,8 +10,7 @@ document.addEventListener('turbolinks:load', () => {
   const minerFee = +divWithData.getAttribute("data-miner-fee")
   const input = document.getElementById("transaction_you_send")
   const output = document.getElementById("transaction_get")
-  
-  
+
   input.addEventListener('change', () => {
     let convertation_rate = +divWithData.getAttribute("data-ust-to-btc")
     let inputValue = input.value
@@ -17,7 +18,7 @@ document.addEventListener('turbolinks:load', () => {
     if (!strIsFloat(inputValue))
       return
 
-    btc = parseFloat(inputValue) * (1 - marketFee) * convertation_rate - minerFee
+    let btc = parseFloat(inputValue) * (1 - marketFee) * convertation_rate - minerFee
     output.value = Math.abs(btc.toFixed(8))
   })
 
@@ -28,7 +29,23 @@ document.addEventListener('turbolinks:load', () => {
     if (!strIsFloat(outputValue))
       return
 
-    ust = (parseFloat(outputValue) + minerFee) / ((1 - marketFee) * convertation_rate)
+    let ust = (parseFloat(outputValue) + minerFee) / ((1 - marketFee) * convertation_rate)
     input.value = Math.abs(ust.toFixed(8))
+  })
+
+  consumer.subscriptions.create("ExchangeRateChannel", {
+    connected() {
+      console.log('Connected to Channel')
+    },
+  
+    disconnected() {
+    },
+  
+    received(data) {
+      divWithData.setAttribute('data-ust-to-btc', data['UST'])
+      let changeEvent = new Event('change')
+      input.dispatchEvent(changeEvent)
+      console.log('received')
+    }
   })
 })
