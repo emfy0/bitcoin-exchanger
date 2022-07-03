@@ -1,14 +1,14 @@
 <%= javascript_pack_tag 'input_usdt_converter', 'data-turbolinks-track': 'reload' %>
 <div class="col col-lg-6 mt-1">
 
-  <%= form_with url: transactions_path, scope: :transaction, method: :post, data: { turbolinks: false } do |form| %>
+  <%= form_with model: transaction_new, url: transactions_path, scope: :transaction, method: :post do |form| %>
     <%= form.hidden_field :cur_code_send, value: "UST" %>
     <%= form.hidden_field :cur_code_get, value: "BTC" %>
 
     <b><%= form.label :to_send_value, t("transaction_form.send") %></b>
     <div class="input-group">
       <div class="col pe-0">
-        <%= form.text_field :to_send_value, class: "form-control", value: 0 %>
+        <%= form.text_field :to_send_value, class: "form-control" %>
       </div>
       <span class="col-auto input-group-text">₮</span>
     </div>
@@ -18,7 +18,7 @@
     <b><%= form.label :to_get_value, t("transaction_form.get") %></b>
     <div class="input-group">
       <div class="col pe-0">
-        <%= form.text_field :to_get_value, class: "form-control", value: 0 %>
+        <%= form.text_field :to_get_value, class: "form-control" %>
       </div>
        <span class="col-auto input-group-text">₿</span>
     </div>

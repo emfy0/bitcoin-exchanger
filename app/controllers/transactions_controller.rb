@@ -1,6 +1,7 @@
 class TransactionsController < ApplicationController
   def new
     initialize_new_variables
+    @transaction_new = TransactionManager.new(to_send_value: 0, to_get_value: 0)
   end
 
   def create
