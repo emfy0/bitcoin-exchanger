@@ -9,7 +9,8 @@ class TransactionManager
   include ActiveModel::Model
   include Bitcoin::Builder
 
-  attr_accessor :cur_code_send, :cur_code_get, :to_send_value, :to_get_value, :recipient_address, :email, :terms
+  attr_accessor :cur_code_send, :cur_code_get, :to_send_value, :to_get_value,
+                :recipient_address, :email, :terms, :db_tx
 
   MINER_FEE = 0.000006
   MARKET_FEE = 0.03
@@ -63,6 +64,8 @@ class TransactionManager
     end
   end
 
+  class NotEnoughBalance < StandardError; end
+
   def addr
     KEY.addr
   end
@@ -72,7 +75,7 @@ class TransactionManager
     utxos = BlockstreamApi.addr_utxo_list(addr)
 
     balance_after_tx = BlockstreamApi.addr_balace(addr) - shatoshi_to_send - MINER_FEE * 100_000_000
-    raise 'Not enough balance' if balance_after_tx.negative?
+    raise NotEnoughBalance.new if balance_after_tx.negative?
 
     utxos.uniq!(&:hash)
 

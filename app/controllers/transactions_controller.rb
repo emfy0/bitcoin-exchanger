@@ -33,6 +33,6 @@ class TransactionsController < ApplicationController
     @market_fee = TransactionManager::MARKET_FEE
     @miner_fee = TransactionManager::MINER_FEE
 
-    @ust_exchange_rate = Currency.find_by(name: 'UST').rate_to_btc
+    @ust_exchange_rate = Currency.rate_to_btc_by_name('UST')
   end
 end
