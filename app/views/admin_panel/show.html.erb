@@ -1,0 +1,49 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"><%= t('stats.all.total_exchange_fee') %></th>
+        <th scope="col"><%= t('stats.all.total_transactions') %></th>
+        <th scope="col"><%= t('stats.all.total_success_transactions') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= float_to_str(@tx_total_sum) %></td>
+        <td><%= @total_tx %></td>
+        <td><%= @total_success_tx %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"><%= t('stats.tx.id') %></th>
+        <th scope="col"><%= t('stats.tx.date') %></th>
+        <th scope="col"><%= t('stats.tx.email') %></th>
+        <th scope="col"><%= t('stats.tx.txid') %></th>
+        <th scope="col"><%= t('stats.tx.from') %></th>
+        <th scope="col"><%= t('stats.tx.to') %></th>
+        <th scope="col"><%= t('stats.tx.exchange_rate') %></th>
+        <th scope="col"><%= t('stats.tx.exchange_fee') %></th>
+        <th scope="col"><%= t('stats.tx.exchange_status') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @transactions.each do |tx| %>
+        <tr>
+          <th scope="row"><%= tx.id %></th>
+          <td><%= l(tx.created_at, format: "%Y.%m.%d %H:%M:%S") %></td>
+          <td><%= tx.email %></td>
+          <td><%= tx.txid %></td>
+          <td><%= tx.income_cur_code %></td>
+          <td><%= tx.outcome_cur_code %></td>
+          <td><%= float_to_str(tx.income_rate_to_btc / tx.outcome_rate_to_btc) %></td>
+          <td><%= float_to_str(tx.income_in_btc - tx.outcome_in_btc - tx.network_fee) %></td>
+          <td><%= tx.status ? 'Success' : 'Fail' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

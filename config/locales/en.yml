@@ -1,5 +1,20 @@
 en:
-  hello: "Hello world"
+  stats:
+    all:
+      total_exchange_fee: "Total exchange fee"
+      total_transactions: "Total transactions"
+      total_success_transactions: "Total success transactions
+"
+    tx:
+      id: "id"
+      date: "data/time"
+      email: "e-mail"
+      txid: "txid"
+      from: "from"
+      to: "to"
+      exchange_rate: "exchange rate"
+      exchange_fee: "exchange fee"
+      exchange_status: "status"
 
   transaction_form:
     send: "You send:"
