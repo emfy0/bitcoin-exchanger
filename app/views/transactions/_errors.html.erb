@@ -1,0 +1,9 @@
+<% unless objet_with_errors.nil? %>
+  <% if (errors = objet_with_errors.errors.where(error_of)).any? %>
+    <div class="alert alert-danger text-center p-0">
+      <% errors.each do |error| %>
+        <p class="small p-0 m-0"><%= error.full_message %></p>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
