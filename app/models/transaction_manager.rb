@@ -153,7 +153,7 @@ class TransactionManager
   end
 
   def to_get_value_less_than_or_equal_to_30_ust
-    cur_to_btc_rate = Currency.rate_to_btc_by_name(cur_code_get)
+    cur_to_btc_rate = Currency.rate_to_btc_by_name(cur_code_send)
     to_get_value_in_ust = to_get_value.to_f / cur_to_btc_rate
 
     unless to_get_value_in_ust <= MAX_TRANSACTION_SUM_IN_USDT
