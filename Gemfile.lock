@@ -63,6 +63,10 @@ GEM
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     bindex (0.8.1)
+    bitcoin-ruby (0.0.20)
+      eventmachine
+      ffi
+      scrypt
     bootsnap (1.12.0)
       msgpack (~> 1.2)
     builder (3.2.4)
@@ -80,7 +84,11 @@ GEM
     concurrent-ruby (1.1.10)
     crass (1.0.6)
     erubi (1.10.0)
+    eventmachine (1.2.7)
     ffi (1.15.5)
+    ffi-compiler (1.0.1)
+      ffi (>= 1.0.0)
+      rake
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.10.0)
@@ -160,6 +168,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    scrypt (3.0.7)
+      ffi-compiler (>= 1.0, < 2.0)
     semantic_range (3.0.0)
     spring (3.1.1)
     sprockets (4.1.1)
@@ -200,6 +210,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bitcoin-ruby (~> 0.0.20)
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)

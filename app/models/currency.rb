@@ -7,7 +7,7 @@ class Currency < ApplicationRecord
     BITFINEX_EXCHANGE_RATE_URL = 'https://api.bitfinex.com/v2/calc/fx'.freeze
 
     class UnknownCurrency < StandardError; end
-    
+
     def exchange_rate(cur, to_cur)
       uri = URI(BITFINEX_EXCHANGE_RATE_URL)
 
@@ -24,8 +24,12 @@ class Currency < ApplicationRecord
   end
 
   class << self
-    def currency_exchange_rate_in_btc(currency)
+    def currency_exchange_rate_in_btc_api(currency)
       BitfinexApi.exchange_rate(currency, 'BTC')
+    end
+
+    def rate_to_btc_by_name(cur_name)
+      Currency.find_by(name: cur_name).rate_to_btc
     end
   end
 

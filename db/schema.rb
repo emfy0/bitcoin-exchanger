@@ -51,10 +51,15 @@ ActiveRecord::Schema.define(version: 2022_07_01_203735) do
   create_table "transactions", force: :cascade do |t|
     t.string "txid"
     t.string "email", null: false
-    t.string "from", null: false
-    t.string "to", null: false
-    t.string "exchange_rate", null: false
-    t.string "exchange_fee", null: false
+    t.string "wallet_address", null: false
+    t.string "recipient_address", null: false
+    t.string "income_cur_code", null: false
+    t.string "outcome_cur_code", null: false
+    t.float "income_in_btc", null: false
+    t.float "outcome_in_btc", null: false
+    t.float "income_rate_to_btc", null: false
+    t.float "outcome_rate_to_btc", null: false
+    t.float "network_fee", null: false
     t.boolean "status", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

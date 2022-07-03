@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center" data-market-fee="<%= @market_fee %>"
     data-miner-fee="<%= float_to_str(@miner_fee) %>"
-    data-ust-to-btc="<%= ApplicationController.helpers.float_to_str(@ust_exchange_rate) %>">
-    <%= render 'form', transaction: @transaction %>
+    data-ust-to-btc="<%= float_to_str(@ust_exchange_rate) %>">
+    <%= render 'form', transaction_new: @transaction_new %>
   </div>
 </div>

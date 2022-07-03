@@ -7,3 +7,19 @@ en:
     recipient_address: "Recipient address:"
     email: "Your email address:"
     terms: "I agree with terms"
+
+  transaction:
+    show:
+      checkout: "Checkout"
+      send: "You send"
+      get: "You get"
+      recipient_address: "Recipient address"
+      network_fee: "Network fee"
+      exchange_fee: "Exchange fee"
+      exchange_rate: "Exchange rate"
+      txid: "TXID"
+      new_transaction: "Make a new transaction"
+
+  errors:
+    recipient_address: 'is invalid'
+    to_get_value: 'is to big! (maximum %{value} USDT equivalent)'

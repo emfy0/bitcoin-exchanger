@@ -1,22 +1,32 @@
 <%= javascript_pack_tag 'input_usdt_converter', 'data-turbolinks-track': 'reload' %>
 <div class="col col-lg-6 mt-1">
-  <% transaction.errors.full_messages.each do |message| %>
-    <p class="mb-sm text-red"><%= message %></p>
+
+  <% unless transaction_new.nil? %>
+    <div class="alert alert-warning text-center">
+      <% transaction_new.errors.full_messages.each do |message| %>
+        <div>
+        <small><%= message %></small>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 
-  <%= form_with model: transaction, data: { turbolinks: false } do |form| %>
-    <b><%= form.label :you_send, t("transaction_form.send") %></b>
+  <%= form_with url: transactions_path, scope: :transaction, method: :post, data: { turbolinks: false } do |form| %>
+    <%= form.hidden_field :cur_code_send, value: "UST" %>
+    <%= form.hidden_field :cur_code_get, value: "BTC" %>
+
+    <b><%= form.label :to_send_value, t("transaction_form.send") %></b>
     <div class="input-group">
       <div class="col pe-0">
-        <%= form.text_field :you_send, class: "form-control", value: 0,required: true %>
+        <%= form.text_field :to_send_value, class: "form-control", value: 0, required: true %>
       </div>
       <span class="col-auto input-group-text">₮</span>
     </div>
 
-    <b><%= form.label :get, t("transaction_form.get") %></b>
+    <b><%= form.label :to_get_value, t("transaction_form.get") %></b>
     <div class="input-group">
       <div class="col pe-0">
-        <%= form.text_field :get, class: "form-control", value: 0, required: true %>
+        <%= form.text_field :to_get_value, class: "form-control", value: 0, required: true %>
       </div>
        <span class="col-auto input-group-text">₿</span>
     </div>
@@ -28,7 +38,7 @@
     <%= form.text_field :email, class: "form-control", required: true %>
 
     <div class="form-check mt-1">
-      <%= form.check_box :terms, required: true, class: "form-check-input" %>
+      <%= form.check_box :terms, class: "form-check-input", required: true %>
       <%= form.label :terms, t("transaction_form.terms"), class: "form-check-label" %>
     </div>
 

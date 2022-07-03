@@ -6,10 +6,10 @@ function strIsFloat(str) {
 
 document.addEventListener('turbolinks:load', () => {
   const divWithData = document.querySelector('[data-market-fee]')
-  const marketFee = +(divWithData.getAttribute("data-market-fee").replace('%', '')) / 100
+  const marketFee = +divWithData.getAttribute("data-market-fee")
   const minerFee = +divWithData.getAttribute("data-miner-fee")
-  const input = document.getElementById("transaction_you_send")
-  const output = document.getElementById("transaction_get")
+  const input = document.getElementById("transaction_to_send_value")
+  const output = document.getElementById("transaction_to_get_value")
 
   input.addEventListener('change', () => {
     let convertation_rate = +divWithData.getAttribute("data-ust-to-btc")
@@ -19,7 +19,7 @@ document.addEventListener('turbolinks:load', () => {
       return
 
     let btc = parseFloat(inputValue) * (1 - marketFee) * convertation_rate - minerFee
-    output.value = Math.abs(btc.toFixed(8))
+    output.value = btc > 0 ? btc.toFixed(8) : 0
   })
 
   output.addEventListener('change', () => {
@@ -30,7 +30,7 @@ document.addEventListener('turbolinks:load', () => {
       return
 
     let ust = (parseFloat(outputValue) + minerFee) / ((1 - marketFee) * convertation_rate)
-    input.value = Math.abs(ust.toFixed(8))
+    input.value = ust > 0 ? ust.toFixed(8) : 0
   })
 
   consumer.subscriptions.create("ExchangeRateChannel", {

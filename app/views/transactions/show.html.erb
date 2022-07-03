@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+  <div class="col-6 mt-3">
+    <div class="card">
+      <div class="card-header">
+        <%= t('transaction.show.checkout') %>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <h5 class="card-title"><%= t('transaction.show.send') %></h5>
+            <p><%= original_income_view(@transaction) %></p>
+
+            <h5 class="card-title"><%= t('transaction.show.get') %></h5>
+            <p><%= original_outcome_view(@transaction) %></p>
+
+            <h5 class="card-title"><%= t('transaction.show.network_fee') %></h5>
+            <p><%= network_fee(@transaction) %></p>
+
+            <h5 class="card-title"><%= t('transaction.show.recipient_address') %></h5>
+            <small><%= @transaction.recipient_address %></small>
+          </div>
+
+          <div class="col-6">
+            <h5 class="card-title"><%= t('transaction.show.exchange_fee') %></h5>
+            <p><%= exchange_fee(@transaction) %></p>
+
+            <h5 class="card-title"><%= t('transaction.show.exchange_rate') %></h5>
+            <p><%= exchange_rate(@transaction) %></p>
+
+            <h5 class="card-title"><%= t('transaction.show.txid') %></h5>
+            <small><%= @transaction.txid %></small>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-auto">
+            <%= link_to t('transaction.show.new_transaction'),
+                        new_transaction_path,
+                        class: 'btn btn-primary mt-2' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
