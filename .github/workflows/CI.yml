@@ -28,7 +28,11 @@ jobs:
       with:
         ruby-version: '2.6.6' # Not needed with a .ruby-version file
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - name: Set up database schema
+      run: |
+        bundle exec rake db:create
+        bundle exec rake db:migrate
+        bundle exec rake db:seed
+    # Add or replace test runners here
     - name: Run tests
-      run: | 
-        RAILS_ENV=test bundle exec rake db:seed
-        bundle exec rspec .
+      run: bundle exec rspec
