@@ -1,24 +1,63 @@
-# README
+# Развертывание c Docker
+---
+1. Setup credentials:
+>__credentials.yml.enc__
+>```
+>base_58_key: ...
+>
+>```
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+2.
+```
+docker-compose up
+```
 
-Things you may want to cover:
+# Развертывание без Docker
+---
 
-* Ruby version
+1. Setup credentials:
+>__credentials.yml.enc__
+>```
+>base_58_key: ...
+>
+>```
 
-* System dependencies
+2. Setup redis for local work
+>__cable.yml__
+>```
+>development:
+>  adapter: redis
+>  url: redis://localhost:6379/1
+>```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+3. Bundle
+```
+bundle install
+```
+4. Create database.
+```
+bundle exec rails db:create
+```
+5. Run database migrations.
+```
+bundle exec rails db:migrate
+```
+```
+bundle exec rails db:seed
+```
+6. Start redis
+```
+redis-server
+```
+7. Run whenever
+```
+whenever --update-crontab --set environment='development'
+```
+8. Restart cron service
+```
+service cron restart
+```
+9. Start rails server.
+```
+bundle exec rails s
+```
