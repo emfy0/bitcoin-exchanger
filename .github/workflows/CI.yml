@@ -38,5 +38,5 @@ jobs:
     # Add or replace test runners here
     - name: Run tests
       env:
-        RAILS_MASTER_KEY: b68f9107f3f92513e712c4f8762f22ed
+        RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
       run: bundle exec rspec
