@@ -1,8 +1,10 @@
-FROM circleci/ruby:2.6.6
+FROM ruby:2.6.6
 
-USER root
+WORKDIR /app
 
-RUN apt-get --allow-releaseinfo-change update && apt-get install -y nodejs postgresql-client sqlite3
+COPY . .
+
+RUN apt-get update && apt-get install -y nodejs sqlite3
 
 WORKDIR /app
 
