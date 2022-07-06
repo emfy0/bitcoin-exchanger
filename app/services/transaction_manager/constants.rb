@@ -3,7 +3,7 @@ require 'bitcoin'
 Bitcoin.network = :testnet3
 
 module TransactionManager
-  class Constants
+  module Constants
     MINER_FEE = 0.000006
     MARKET_FEE = 0.03
 
