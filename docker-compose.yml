@@ -13,10 +13,10 @@ services:
     tty: true
     stdin_open: true
     build: ./
-    entrypoint: "/usr/bin/entrypoint.sh"
-    command: bundle exec rails server -p 3000 -b 0.0.0.0
+    entrypoint: "/app/entrypoint.sh"
+    command: make
     volumes:
-      - ./:/app
+      - ./db:/app/db
     environment:
       RAILS_ENV: development
     ports:
