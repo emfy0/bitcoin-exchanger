@@ -4,7 +4,6 @@ Bitcoin.network = :testnet3
 
 module TransactionManager
   class Builder
-    include BlockstreamApi
     include ActiveModel::Model
     include Bitcoin::Builder
 

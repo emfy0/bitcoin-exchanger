@@ -1,7 +1,5 @@
 module TransactionManager
   class Broadcaster
-    include BlockstreamApi
-
     def self.call(hash)
       new(hash).broadcast_transaction
     end
