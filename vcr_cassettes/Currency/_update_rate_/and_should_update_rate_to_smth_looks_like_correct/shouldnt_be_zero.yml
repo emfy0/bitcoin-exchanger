@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 03 Jul 2022 21:15:41 GMT
+      - Wed, 06 Jul 2022 13:16:05 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -51,9 +51,9 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7252a34e5f431610-DME
+      - 72689ce8ba3675af-DME
     body:
       encoding: UTF-8
-      string: "[0.00005166]"
-  recorded_at: Sun, 03 Jul 2022 21:15:02 GMT
+      string: "[0.00004956]"
+  recorded_at: Wed, 06 Jul 2022 13:16:05 GMT
 recorded_with: VCR 6.1.0

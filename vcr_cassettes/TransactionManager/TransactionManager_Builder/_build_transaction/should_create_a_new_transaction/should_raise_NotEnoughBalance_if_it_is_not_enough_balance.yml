@@ -1,0 +1,169 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://blockstream.info/testnet/api/address/mkuKjJGEe3JabSbBk6kfNSLgiqFi6m97mi/utxo
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 06 Jul 2022 13:16:07 GMT
+      Content-Type:
+      - application/json
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - public, max-age=10
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - x-total-results
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"txid":"22e2ae8365bc94b21d348b9d0e294142476c15d57948d9c2926038ebb2d43e9a","vout":1,"status":{"confirmed":true,"block_height":2284363,"block_hash":"0000000000000035d3c79690de39d7e656a9db24dc502ca6eb7fc1e3bdfc87db","block_time":1657112164},"value":61290},{"txid":"22e2ae8365bc94b21d348b9d0e294142476c15d57948d9c2926038ebb2d43e9a","vout":0,"status":{"confirmed":true,"block_height":2284363,"block_hash":"0000000000000035d3c79690de39d7e656a9db24dc502ca6eb7fc1e3bdfc87db","block_time":1657112164},"value":4220}]'
+  recorded_at: Wed, 06 Jul 2022 13:16:07 GMT
+- request:
+    method: get
+    uri: https://blockstream.info/testnet/api/tx/22e2ae8365bc94b21d348b9d0e294142476c15d57948d9c2926038ebb2d43e9a/raw
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 06 Jul 2022 13:16:07 GMT
+      Content-Type:
+      - application/octet-stream
+      Content-Length:
+      - '373'
+      Cache-Control:
+      - public, max-age=10
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - x-total-results
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        AQAAAAKZGCnaLgTaqbsn+VaIyVzmsrsZ33qEXG+T5fdxuw3pJwAAAABqRzBEAiBPxm4Z01OOQ4J1YgC0q4X5UE3EXHgCFA+MqzpxspErTAIgbsGw2atL2b6BeLj6e0/2z0PobhCJMwj7RC9/7JSEjzQBIQM8BrMObSAeQVuVtCj2ITZZK7JAOKUu6/VBXRCnYfxd5v////+ZGCnaLgTaqbsn+VaIyVzmsrsZ33qEXG+T5fdxuw3pJwEAAABrSDBFAiEAxgv8bqMJYcW4Jy1GTO6DxOqW9V1VbwvHDTuPmdFjDD0CIEIlsr+Frmokzv7veTR7UNwbj4KeLC4K7eVS/K+EJoswASEDPAazDm0gHkFblbQo9iE2WSuyQDilLuv1QV0Qp2H8Xeb/////AnwQAAAAAAAAGXapFDsTrF7iWW5xYYKr2ZunjqXs5p5riKxq7wAAAAAAABl2qRQ7E6xe4llucWGCq9mbp46l7Oaea4isAAAAAA==
+  recorded_at: Wed, 06 Jul 2022 13:16:07 GMT
+- request:
+    method: get
+    uri: https://blockstream.info/testnet/api/tx/22e2ae8365bc94b21d348b9d0e294142476c15d57948d9c2926038ebb2d43e9a/raw
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 06 Jul 2022 13:16:08 GMT
+      Content-Type:
+      - application/octet-stream
+      Content-Length:
+      - '373'
+      Cache-Control:
+      - public, max-age=10
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - x-total-results
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        AQAAAAKZGCnaLgTaqbsn+VaIyVzmsrsZ33qEXG+T5fdxuw3pJwAAAABqRzBEAiBPxm4Z01OOQ4J1YgC0q4X5UE3EXHgCFA+MqzpxspErTAIgbsGw2atL2b6BeLj6e0/2z0PobhCJMwj7RC9/7JSEjzQBIQM8BrMObSAeQVuVtCj2ITZZK7JAOKUu6/VBXRCnYfxd5v////+ZGCnaLgTaqbsn+VaIyVzmsrsZ33qEXG+T5fdxuw3pJwEAAABrSDBFAiEAxgv8bqMJYcW4Jy1GTO6DxOqW9V1VbwvHDTuPmdFjDD0CIEIlsr+Frmokzv7veTR7UNwbj4KeLC4K7eVS/K+EJoswASEDPAazDm0gHkFblbQo9iE2WSuyQDilLuv1QV0Qp2H8Xeb/////AnwQAAAAAAAAGXapFDsTrF7iWW5xYYKr2ZunjqXs5p5riKxq7wAAAAAAABl2qRQ7E6xe4llucWGCq9mbp46l7Oaea4isAAAAAA==
+  recorded_at: Wed, 06 Jul 2022 13:16:07 GMT
+- request:
+    method: get
+    uri: https://blockstream.info/testnet/api/address/mkuKjJGEe3JabSbBk6kfNSLgiqFi6m97mi
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 06 Jul 2022 13:16:08 GMT
+      Content-Type:
+      - application/json
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - public, max-age=10
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - x-total-results
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"address":"mkuKjJGEe3JabSbBk6kfNSLgiqFi6m97mi","chain_stats":{"funded_txo_count":63,"funded_txo_sum":2412406,"spent_txo_count":61,"spent_txo_sum":2346896,"tx_count":39},"mempool_stats":{"funded_txo_count":0,"funded_txo_sum":0,"spent_txo_count":0,"spent_txo_sum":0,"tx_count":0}}'
+  recorded_at: Wed, 06 Jul 2022 13:16:07 GMT
+recorded_with: VCR 6.1.0

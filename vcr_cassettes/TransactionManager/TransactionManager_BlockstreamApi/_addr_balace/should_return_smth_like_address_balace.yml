@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 03 Jul 2022 21:15:41 GMT
+      - Wed, 06 Jul 2022 13:16:06 GMT
       Content-Type:
       - application/json
       Vary:
@@ -40,6 +40,6 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"address":"mkuKjJGEe3JabSbBk6kfNSLgiqFi6m97mi","chain_stats":{"funded_txo_count":43,"funded_txo_sum":1730306,"spent_txo_count":41,"spent_txo_sum":1658796,"tx_count":29},"mempool_stats":{"funded_txo_count":0,"funded_txo_sum":0,"spent_txo_count":0,"spent_txo_sum":0,"tx_count":0}}'
-  recorded_at: Sun, 03 Jul 2022 21:15:02 GMT
+      string: '{"address":"mkuKjJGEe3JabSbBk6kfNSLgiqFi6m97mi","chain_stats":{"funded_txo_count":63,"funded_txo_sum":2412406,"spent_txo_count":61,"spent_txo_sum":2346896,"tx_count":39},"mempool_stats":{"funded_txo_count":0,"funded_txo_sum":0,"spent_txo_count":0,"spent_txo_sum":0,"tx_count":0}}'
+  recorded_at: Wed, 06 Jul 2022 13:16:05 GMT
 recorded_with: VCR 6.1.0

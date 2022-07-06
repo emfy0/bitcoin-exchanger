@@ -1,14 +1,15 @@
 class TransactionsController < ApplicationController
   def new
     initialize_new_variables
-    @transaction_new = TransactionManager.new(to_send_value: 0, to_get_value: 0)
+    @transaction_new = TransactionManager::Builder.new(to_send_value: 0, to_get_value: 0)
   end
 
   def create
-    @transaction_new = TransactionManager.new(tx_params)
+    @transaction_new = TransactionManager::Builder.new(tx_params)
 
     if @transaction_new.valid?
-      @transaction = @transaction_new.build_and_broadcast_transaction
+      transaction = @transaction_new.build_transaction
+      @transaction = TransactionManager::Broadcaster.call(transaction)
 
       render :show
     else
@@ -31,8 +32,8 @@ class TransactionsController < ApplicationController
   end
 
   def initialize_new_variables
-    @market_fee = TransactionManager::MARKET_FEE
-    @miner_fee = TransactionManager::MINER_FEE
+    @market_fee = TransactionManager::Constants::MARKET_FEE
+    @miner_fee = TransactionManager::Constants::MINER_FEE
 
     @ust_exchange_rate = Currency.rate_to_btc_by_name('UST')
   end

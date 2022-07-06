@@ -20,26 +20,28 @@ http_interactions:
     headers:
       Server:
       - nginx
-      Date:
-      - Sun, 03 Jul 2022 21:15:41 GMT
-      Content-Type:
-      - application/json
       Vary:
       - Accept-Encoding
-      Cache-Control:
-      - public, max-age=10
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Expose-Headers:
       - x-total-results
       Via:
       - 1.1 google
+      Date:
+      - Wed, 06 Jul 2022 13:16:06 GMT
+      Cache-Control:
+      - public, max-age=10
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '215'
+      Age:
+      - '0'
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      Transfer-Encoding:
-      - chunked
     body:
       encoding: ASCII-8BIT
-      string: '[{"txid":"8c93d0c158af730761e298b8fdcfb87d8611f21e766118cb42a20e79f754bb36","vout":1,"status":{"confirmed":true,"block_height":2283898,"block_hash":"000000000000f4abbc30572801e5b40ed4fe26377cd98e7df6f82dec2bdcd989","block_time":1656860497},"value":68510},{"txid":"8c93d0c158af730761e298b8fdcfb87d8611f21e766118cb42a20e79f754bb36","vout":0,"status":{"confirmed":true,"block_height":2283898,"block_hash":"000000000000f4abbc30572801e5b40ed4fe26377cd98e7df6f82dec2bdcd989","block_time":1656860497},"value":3000}]'
-  recorded_at: Sun, 03 Jul 2022 21:15:03 GMT
+      string: '[{"txid":"22e2ae8365bc94b21d348b9d0e294142476c15d57948d9c2926038ebb2d43e9a","vout":1,"status":{"confirmed":true,"block_height":2284363,"block_hash":"0000000000000035d3c79690de39d7e656a9db24dc502ca6eb7fc1e3bdfc87db","block_time":1657112164},"value":61290},{"txid":"22e2ae8365bc94b21d348b9d0e294142476c15d57948d9c2926038ebb2d43e9a","vout":0,"status":{"confirmed":true,"block_height":2284363,"block_hash":"0000000000000035d3c79690de39d7e656a9db24dc502ca6eb7fc1e3bdfc87db","block_time":1657112164},"value":4220}]'
+  recorded_at: Wed, 06 Jul 2022 13:16:05 GMT
 recorded_with: VCR 6.1.0

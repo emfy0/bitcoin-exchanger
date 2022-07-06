@@ -23,7 +23,7 @@ http_interactions:
       message: Internal Server Error
     headers:
       Date:
-      - Tue, 05 Jul 2022 17:32:13 GMT
+      - Wed, 06 Jul 2022 13:16:04 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -51,9 +51,9 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7261d6b84ba27b1f-DME
+      - 72689cded98c00bc-DME
     body:
       encoding: UTF-8
       string: '["error",10020,"ccy: invalid"]'
-  recorded_at: Tue, 05 Jul 2022 17:31:32 GMT
+  recorded_at: Wed, 06 Jul 2022 13:16:03 GMT
 recorded_with: VCR 6.1.0
