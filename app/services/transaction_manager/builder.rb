@@ -17,7 +17,7 @@ module TransactionManager
     validates_acceptance_of :terms
     validate :correct_recipient_address
     validates :to_send_value,
-              numericality: { less_than_or_equal_to: TransactionManager::Constants::MAX_TRANSACTION_SUM_IN_USDT,
+              numericality: { less_than_or_equal_to: Constants::MAX_TRANSACTION_SUM_IN_USDT,
                               greater_than: 0 }
     validates :to_get_value, numericality: { greater_than: 0 }
     validate :to_get_value_less_than_or_equal_to_30_ust
@@ -27,7 +27,7 @@ module TransactionManager
       utxos = BlockstreamApi.addr_utxo_list(addr)
 
       balance_after_transaction =
-        BlockstreamApi.addr_balace(addr) - shatoshi_to_send - TransactionManager::Constants::MINER_FEE * 100_000_000
+        BlockstreamApi.addr_balace(addr) - shatoshi_to_send - Constants::MINER_FEE * 100_000_000
 
       raise NotEnoughBalance if balance_after_transaction.negative?
 
@@ -38,7 +38,7 @@ module TransactionManager
         utxos.each do |utxo|
           make_transaction_input transaction: transaction, prev_transaction: utxo,
                                  prev_transaction_indexs: addr_indexs_in_transaction_out(transaction: utxo, address: addr),
-                                 sign_key: TransactionManager::Constants::KEY
+                                 sign_key: Constants::KEY
         end
 
         transaction.output do |o|
@@ -60,7 +60,7 @@ module TransactionManager
     class NotEnoughBalance < StandardError; end
 
     def addr
-      TransactionManager::Constants::KEY.addr
+      Constants::KEY.addr
     end
 
     def create_db_record
@@ -76,7 +76,7 @@ module TransactionManager
                          outcome_in_btc: get_value_rate * to_get_value.to_f,
                          income_rate_to_btc: send_value_rate,
                          outcome_rate_to_btc: get_value_rate,
-                         network_fee: TransactionManager::Constants::MINER_FEE)
+                         network_fee: Constants::MINER_FEE)
     end
 
     def make_transaction_input(transaction:, prev_transaction:, prev_transaction_indexs:, sign_key:)
@@ -109,9 +109,9 @@ module TransactionManager
       cur_to_btc_rate = Currency.rate_to_btc_by_name(cur_code_send)
       to_get_value_in_ust = to_get_value.to_f / cur_to_btc_rate
 
-      unless to_get_value_in_ust <= TransactionManager::Constants::MAX_TRANSACTION_SUM_IN_USDT
+      unless to_get_value_in_ust <= Constants::MAX_TRANSACTION_SUM_IN_USDT
         errors.add(:to_get_value,
-                   I18n.t('errors.to_get_value', value: TransactionManager::Constants::MAX_TRANSACTION_SUM_IN_USDT))
+                   I18n.t('errors.to_get_value', value: Constants::MAX_TRANSACTION_SUM_IN_USDT))
       end
     end
   end
