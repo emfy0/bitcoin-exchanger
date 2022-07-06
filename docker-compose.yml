@@ -16,7 +16,7 @@ services:
     entrypoint: "/app/entrypoint.sh"
     command: make
     volumes:
-      - ./db:/app/db
+      - myapp:/app
     environment:
       RAILS_ENV: development
     ports:
@@ -25,6 +25,9 @@ services:
       - bitcoin_exchanger
     depends_on:
       - redis
+
+volumes:
+  myapp:
 
 networks:
   bitcoin_exchanger:

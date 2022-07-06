@@ -11,8 +11,6 @@ module TransactionManager
       @transaction_in_db = hash[:transaction_in_db]
     end
 
-    private
-
     def broadcast_transaction
       res = BlockstreamApi.broadcast_transaction(@transaction)
 
